@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Friend Finder Survey</title>
+      <meta name="author" content="Heather Mathies">
+      <meta name="description" content="">
+      <link rel="manifest" href="/manifest.json">
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+      <meta name="theme-color" content="#ffffff">
+      <!-- Bootstrap latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <script src="https://code.jquery.com/jquery.js"></script>
+      <!-- jQuery Google CDN -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+      <!-- Bootstrap JS MaxCDN -->
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+   </head>
+   <body>
+      <div class="container">
+         <h1>Friend Survey</h1>
+         <hr>
+         <!--
+            Your survey should have 10 questions of your choosing. Each answer should be on a scale of 1 to 5 based on how much the user agrees or disagrees with a question. -->
+         <!-- Text input-->
+         <div class="containter">
+            <div class="form-group">
+               <label class="col-sm-12 control-label" for="textinput">Name</label>
+               <div class="col-sm-12">
+                  <input id="textinput" name="textinput" type="text" placeholder="type your name" class="form-control input-md">
+               </div>
+               <label class="col-sm-12 control-label" for="textinput">Photo Link</label>
+               <div class="col-sm-12">
+                  <input id="textinput" name="photo" type="text" placeholder="Paste your photo url here" class="form-control input-md">
+                  <hr>
+               </div>
+            </div>
+         </div>
+         <!-- Survey Questions -->
+         <div class="container">
+            <div class="form-group">
+               <h3>Question 1: <span class="label label-default"></span>Your ideal date would be a night snuggled up on the couch with snacks and a movie.</h3>
+               <div class="col-sm-12 col-md-2">
+                  <select id="selectbasic" name="selectbasic" class="form-control">
+                     <option value="1">1 (Strongly Disagree)</option>
+                     <option value="2">2</option>
+                     <option value="3">3</option>
+                     <option value="4">4</option>
+                     <option value="5">5 (Strongly Agree)</option>
+                  </select>
+               </div>
+            </div>
+         </div>
+      </div>
+   </body>
+</html>
