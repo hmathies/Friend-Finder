@@ -189,8 +189,27 @@
             </div>
          </div>
       </div>
-     </body>
-  </html>
+      <div id="resultsModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">×</button>
+            <h2 class="modal-title"><strong>Best Match</strong></h2>
+         </div>
+         <div class="modal-body">
+            <h2 id="matchName"></h2>
+            <img id="matchImg" src="" alt="">
+         </div>
+         <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         </div>
+    </div>
+   </div>
+  </div>
+</body>
+</html>
       <script>
 
       // In this code below we create the Front-end JavaScript which "POSTS" our form data to our express server.
@@ -214,13 +233,20 @@
         // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
         // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
         // depending on if a tables is available or not.
+        var currentURL = window.location.origin;
 
-        $.post("/api/friends", friendsData,
-          function(data, err) {
+        $.post(currentURL + "/api/friends", friendsData, function(data, err) {
+
+            //modal code below--not working yet
+            $("#name").text(data.name);
+
+            $("#photo").attr('src', data.photo);
+
+            $("#resultsModal").attr('toggle');
 
             //I think this is where a modal will either pop up
-            if (!data) {
-              console.log("you have data");
+            if (data) {
+              alert("Thanks for taking the survey");
             }
 // or an alert will pop up if they didn't complete the form
             else {
@@ -234,5 +260,7 @@
           $("#q1, #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10").val("");
 
       });
+
+
 
       </script>
