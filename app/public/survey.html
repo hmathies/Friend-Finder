@@ -202,73 +202,37 @@
         event.preventDefault();
 
         // Here we grab the form elements
-        var userData = {
+        var friendsData = {
             name: $("#name").val().trim(),
             photo: $("#photo").val().trim(),
             scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(),
-                $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()
-            ]
+                $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()]
         };
-        console.log(userData);
+        console.log(friendsData);
 
         // This line is the magic. It"s very similar to the standard ajax function we used.
         // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
         // The callback is the response of the server. In our case, we set up code in api-routes that "returns" true or false
         // depending on if a tables is available or not.
 
-        $.post("/api/tables", userData,
-          function(data) {
+        $.post("/api/friends", friendsData,
+          function(data, err) {
 
-            // If a table is available... tell user they are booked.
-            if (data) {
-              alert("Yay! I received your survey!");
+            //I think this is where a modal will either pop up
+            if (!data) {
+              console.log("you have data");
             }
-
-            // If a table is available... tell user they on the waiting list.
+// or an alert will pop up if they didn't complete the form
             else {
-              alert("Sorry, something is not quite right");
+              console.log(err);
             }
 
-            // Clear the form when submitting
 
-            //need to look and see how to clear the scores
           });
           $("#name").val("");
           $("#photo").val("");
           $("#q1, #q2, #q3, #q4, #q5, #q6, #q7, #q8, #q9, #q10").val("");
 
       });
-
-      //
-      // // Capture the form inputs
-      //           $("#submit").on("click", function(e) {
-      //               e.preventDefault();
-      //               // Form validation
-      //               function validateForm() {
-      //                       var isValid = true;
-      //                       $('.form-control').each(function() {
-      //                           if ($(this).val() === '')
-      //                               isValid = false;
-      //                       });
-      //                   }
-      //                   // If all required fields are filled
-      //               if (validateForm() == true) {
-      //                   // Create an object for the user's data
-      //                   var userData = {
-      //                       name: $("#name").val(),
-      //                       photo: $("#photo").val(),
-      //                       scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(),
-      //                           $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val()
-      //                       ]
-      //
-      //                   }
-      //                   console.log(userData);
-      //
-      //               } else {
-      //                   alert("Please fill out all fields before submitting!");
-      //               }
-      //
-      //               return false;
-      //           });
 
       </script>
