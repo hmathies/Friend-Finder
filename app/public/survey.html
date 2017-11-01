@@ -29,11 +29,11 @@
             <div class="form-group">
                <label class="col-sm-12 control-label" for="textinput">Name</label>
                <div class="col-sm-12">
-                  <input id="textinput" name="textinput" type="text" placeholder="type your name" class="form-control input-md">
+                  <input id="name" name="textinput" type="text" placeholder="type your name"  class="form-control input-md">
                </div>
                <label class="col-sm-12 control-label" for="textinput">Photo Link</label>
                <div class="col-sm-12">
-                  <input id="textinput" name="photo" type="text" placeholder="Paste your photo url here" class="form-control input-md">
+                  <input id="photo" name="photo" type="text" placeholder="Paste your photo url here" class="form-control input-md">
                   <hr>
                </div>
             </div>
@@ -43,16 +43,69 @@
             <div class="form-group">
                <h3>Question 1: <span class="label label-default"></span>Your ideal date would be a night snuggled up on the couch with snacks and a movie.</h3>
                <div class="col-sm-12 col-md-2">
-                  <select id="selectbasic" name="selectbasic" class="form-control">
+                  <select id="q1" name="selectbasic" class="form-control">
                      <option value="1">1 (Strongly Disagree)</option>
-                     <option value="2">2</option>
-                     <option value="3">3</option>
-                     <option value="4">4</option>
+                     <option value="2">2(Somewhat Agree)</option>
+                     <option value="3">3(Agree)</option>
+                     <option value="4">4(Agree a lot)</option>
                      <option value="5">5 (Strongly Agree)</option>
                   </select>
+                  <!-- submit button -->
+                  <hr>
+                  <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>Find Friends</button>
                </div>
             </div>
          </div>
       </div>
+      <script>
+
+          // Capture the form inputs
+          $("#submit").on("click", function(){
+
+          	// Form validation
+          	function validateForm() {
+      		  var isValid = true;
+      		  $('.form-control').each(function() {
+      		    if ( $(this).val() === '' )
+      		        isValid = false;
+      		  });
+
+
+      		// If all required fields are filled
+      		if (validateForm() == true)
+      		{
+      			// Create an object for the user's data
+      	    	var userData = {
+      	    		name: $("#name").val(),
+      	    		photo: $("#photo").val(),
+      	    		scores: [$("#q1").val(), $("#q2").val(), $("#q3").val(), $("#q4").val(), $("#q5").val(), $("#q6").val(), $("#q7").val(), $("#q8").val(), $("#q9").val(), $("#q10").val() ]
+      	    	}
+
+
+      	    	// Grab the URL of the website
+      	    	var currentURL = window.location.origin;
+
+      	    	// AJAX post the data to the friends API.
+      	    	$.post(currentURL + "/api/friends", userData, function(data){
+
+      	    		// Grab the result from the AJAX post so that the best match's name and photo are displayed.
+      	    		$("#matchName").text(data.name);
+      	    		$('#matchImg').attr("src", data.photo);
+
+      		    	// Show the modal with the best match
+      		    	$("#resultsModal").modal('toggle');
+
+      	    	});
+      		}
+      		else
+      		{
+      			alert("Please fill out all fields before submitting!");
+      		}
+
+          	return false;
+          });
+
+      </script>
+
    </body>
 </html>
