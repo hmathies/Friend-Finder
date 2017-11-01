@@ -41,8 +41,8 @@ module.exports = function(app) {
 //take in data from survey, This route will also be used to handle the compatibility logic.
 //for each or for in loop over the friends data
 //do the .push last--look up absolute value in js
-    // friendsData.push(req.body);
-    console.log(req.body);
+    friendsData.push(req.body);
+    console.log(friendsData);
     //send back the matched friend info /make sure the field i send back to the request has a name and a photo
   });
 
