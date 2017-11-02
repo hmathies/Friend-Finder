@@ -184,15 +184,15 @@
             <hr>
             <div class="row">
               <div class="col-md-2">
-               <button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>Find Friends</button>
+               <a href="/api/friends"><button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>Find Friends</button>
               </div>
             </div>
          </div>
       </div>
-      <div id="resultsModal" class="modal fade" role="dialog">
-	  <div class="modal-dialog">
 
       <!-- Modal content-->
+      <div id="resultsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
       <div class="modal-content">
          <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">×</button>
@@ -208,6 +208,13 @@
     </div>
    </div>
   </div>
+
+  <!-- footer with links -->
+  <footer class="footer">
+     <div class="container">
+        <p><a href="/api/friends">API Friend's List</a> | <a href="https://github.com/hmathies/Friend-Finder">GitHub Repo</a></p>
+     </div>
+  </footer>
 </body>
 </html>
       <script>
@@ -219,6 +226,7 @@
 
       $("#submit").on("click", function(event) {
         event.preventDefault();
+        console.log("did you go somewhere?");
 
         // Here we grab the form elements
         var friendsData = {
