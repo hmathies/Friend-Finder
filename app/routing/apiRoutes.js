@@ -26,6 +26,7 @@ module.exports = function(app) {
 
   app.get("/api/friends", function(req, res) {
     res.json(friendsData);
+
   });
 
 
@@ -41,8 +42,16 @@ module.exports = function(app) {
 //take in data from survey, This route will also be used to handle the compatibility logic.
 //for each or for in loop over the friends data
 //do the .push last--look up absolute value in js
+
+    var total = 0
+    friendsData.forEach(function (friendsData) {
+      total += friendsData
+    });
+    console.log(total / friendsData.length)
+
+
     friendsData.push(req.body);
-    console.log(friendsData);
+console.log(friendsData);
     //send back the matched friend info /make sure the field i send back to the request has a name and a photo
   });
 
