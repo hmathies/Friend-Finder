@@ -44,16 +44,16 @@ module.exports = function(app) {
 //do the .push last--look up absolute value in js
   var newfriendsData = req.body;
   console.log(newfriendsData);
-
+  var total = 0
+  for (i in friendsData){
+    total += friendsData;
+  };
+  console.log(total / friendsData.length);
   friendsData.push(newfriendsData);
   res.json(newfriendsData);
 
 //the below loop isn't wokring and the error is saying that it can't convert object to a primitive value
-    // var total = 0
-    // for (i in friendsData){
-    //   total += friendsData;
-    // };
-    // console.log(total / friendsData.length);
+
 
 
 
