@@ -42,15 +42,28 @@ module.exports = function(app) {
 //take in data from survey, This route will also be used to handle the compatibility logic.
 //for each or for in loop over the friends data
 //do the .push last--look up absolute value in js
-  var newfriendsData = req.body;
-  console.log(newfriendsData);
-  var total = 0
-  for (i in friendsData){
-    total += friendsData;
-  };
-  console.log(total / friendsData.length);
-  friendsData.push(newfriendsData);
-  res.json(newfriendsData);
+    var newfriendsData = req.body;
+    console.log(newfriendsData);
+    var newFriendTotal = 0;
+    for(i in newfriendsData.scores){
+      newFriendsTotal += newFriendsData.scores[i];
+    }
+    var bestFriend;
+    var bestFriendDiff;
+    for (i in friendsData){
+      var total = 0
+      for(j in friendsData[i].scores){
+        total += friendsData[i].scores[j];
+      }
+    var diff = Math.abs(newFriendsTotal - total);
+    if(bestFriendDiff === null || bestFriendDiff > diff){
+      bestFriend = friendsData[i];
+      bestFriendDiff = diff;
+    }
+    };
+    console.log(total / friendsData.length);
+    friendsData.push(newfriendsData);
+    res.json(bestFriend);
 
 //the below loop isn't wokring and the error is saying that it can't convert object to a primitive value
 

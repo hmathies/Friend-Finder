@@ -14,3 +14,5 @@ var friendsData = [
 
 // export the array. This makes it accessible to other files using require.
 module.exports = friendsData;
+
+// Patrick's code snippet-----friends[friendNum].name
