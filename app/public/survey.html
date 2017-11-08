@@ -18,9 +18,9 @@
       <!-- Bootstrap JS MaxCDN -->
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
    </head>
-   <body>
+   <body style="background-color: #813772">
       <div class="container">
-         <h1>Friend Survey</h1>
+         <h1 style="color: white">Friend Survey</h1>
          <hr>
          <!--
             Your survey should have 10 questions of your choosing. Each answer should be on a scale of 1 to 5 based on how much the user agrees or disagrees with a question. -->
@@ -186,7 +186,7 @@
             <hr>
             <div class="row">
               <div class="col-md-2">
-               <a href="/api/friends"><button type="submit" class="btn btn-primary btn-lg btn-block" id="submit"><i class="fa fa-check-circle" aria-hidden="true"></i>Find Friends</button>
+               <a href="/api/friends"><button type="submit" class="btn btn-lg btn-block" id="submit" style="background-color: #062F4F"><i class="fa fa-check-circle" aria-hidden="true"></i>Find Friends</button>
               </div>
             </div>
          </div>
@@ -195,17 +195,17 @@
       <!-- Modal content-->
       <div id="resultsModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-      <div class="modal-content">
-         <div class="modal-header">
+      <div class="modal-content" >
+         <div class="modal-header text-center" style="background-color: #000000">
             <button type="button" class="close" data-dismiss="modal">×</button>
-            <h2 class="modal-title"><strong>Best Match</strong></h2>
+            <h2 class="modal-title" style="text-center"><strong>Best Match</strong></h2>
          </div>
-         <div class="modal-body">
-            <h2 id="matchName"></h2>
-            <img id="matchImg" src="" alt="">
+         <div class="modal-body" style="background-color: #062F4F">
+            <h2 class="text-center" style="color: black" id="matchName"></h2>
+            <img id="matchImg" src="" alt="no image provided"style="content-align: center">
          </div>
-         <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+         <div class="modal-footer" style=" background-color: #000000">
+            <button type="button" class="btn" style="background-color: #B82601" data-dismiss="modal">Close</button>
          </div>
     </div>
    </div>
@@ -228,7 +228,6 @@
 
       $("#submit").on("click", function(event) {
         event.preventDefault();
-        console.log("did you go somewhere?");
 
         // Here we grab the form elements
         var friendsData = {

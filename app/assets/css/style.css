@@ -1,0 +1,12 @@
+body{
+	background-color: black;
+}
+
+.jumbotron {
+background-color: purple;
+}
+
+h1 {
+color: blue;
+font-size: 70px;
+}
