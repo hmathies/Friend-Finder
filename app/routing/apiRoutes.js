@@ -61,7 +61,7 @@ module.exports = function(app) {
       bestFriendDiff = diff;
     }
     };
-    console.log(total / friendsData.length);
+
     friendsData.push(newfriendsData);
     res.json(bestFriend);
 
