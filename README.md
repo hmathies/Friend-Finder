@@ -4,8 +4,8 @@ This is a full-stack application that takes in results from  users' surveys, the
 
 <h2>Technologies Used:</h2>
 Node.js, HTML5, Bootstrap, Google Fonts, CSS <br>
-And the following npm packages to handle routing:
--Express<br>
+And the following npm packages to handle routing:<br>
+Express<br>
 -bodyParser<br>
 -Path
 
